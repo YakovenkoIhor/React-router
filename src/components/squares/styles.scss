@@ -1,0 +1,37 @@
+.squares{
+  margin: 0 auto;
+  background: silver;
+  width: 800px;
+  display: inline-flex;
+
+}
+.square{
+  margin: 10px auto;
+  background: #aeaea7;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.count{
+  margin: 0 auto;
+
+  width: 10px;
+  display: flex;
+  justify-content: center;
+}
+.plus{
+  margin: 0 auto;
+  background: silver;
+  width: 10px;
+  display: flex;
+  justify-content: center;
+}
+.minus{
+  margin: 0 auto;
+  background: silver;
+  width: 10px;
+  display: flex;
+  justify-content: center;
+}
