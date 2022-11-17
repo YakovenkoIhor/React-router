@@ -7,34 +7,18 @@ import Error from '../../routes/Error'
 
 const MainUsers = () => {
 
-
   return (
       <Routes>
 
-        <Route path="/" element={<HomeUsers />} >
-          <Route path="users" element={<Users/>} >
+        <Route path="/" element={<HomeUsers />} />
+        
+        <Route path="users" element={<Users/>} />
 
-          <Route
-            index={true}
-            element={<User />}
-          />
+        <Route path="users/:userId" element={<User/>} />
 
-            <Route path=":userId" element={<User/>} />
-          </Route>
-
-          {/* <Route
-            path="*"
-            element={
-              <main style={{ padding: "1rem" }}>
-                <p>There's nothing here!</p>
-              </main>
-            }
-          /> */}
-          </Route>
-          <Route path="*" element={<Error />} />
+        <Route path="*" element={<Error />} />
 
       </Routes>
-        
   )
 }
 

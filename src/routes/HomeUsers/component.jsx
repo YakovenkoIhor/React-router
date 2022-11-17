@@ -1,20 +1,41 @@
-import {Link, Outlet } from "react-router-dom"
+import {Link} from "react-router-dom"
 
 const HomeInvoices = () => {
     return (
-      <div>
+      <div
+      style={{
+        background: "pink"
+       }}
+      >
         <h1>Users</h1>
+
         <p>User information</p>
+
         <nav
           style={{
             borderBottom: "solid 1px",
             paddingBottom: "1rem"
           }}
         >
-          <Link to="/users">Users</Link>
-          {/* <Link to="/expenses">Expenses</Link> */}
+          <Link 
+          style={{
+            textDecoration: "none",
+            color: "black"
+           }}
+          to="/users">
+            
+            <botton 
+                style={{    
+                  background: "gray",
+                  borderRadius: "17px",
+                  padding: "4px 20px",
+                  textDecoration: "none",
+              }}
+              >Users
+            </botton>
+            
+          </Link>
         </nav>
-        <Outlet />
       </div>
     );
   }

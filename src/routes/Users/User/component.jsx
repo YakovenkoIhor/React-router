@@ -1,38 +1,54 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import useGetData from '../../../hooks/useGetData'
-// const urlUser = 'https://jsonplaceholder.typicode.com/users/1'
+
+import {url} from '../../../url/url'
 
 const User = () => {
   let {userId} = useParams();
-console.log('userId',userId);
 
-const user = useGetData(`https://jsonplaceholder.typicode.com/users/${userId}`)
-console.log('user', user);
+  const user = useGetData(`${url+userId}`, userId)
 
-if(!user) {
+  if(!userId) {
+    return (
+        <main style={{ padding: "1rem" }}>
+          <p>Select an invoice</p>
+        </main>
+    )
+  }
   return (
-      <main style={{ padding: "1rem" }}>
-        <p>Select an invoice</p>
-      </main>
-  )
-}
+    <main style={{
+      padding: "1rem",
+      background: "pink"
+     }}>
+      <h2>Name: {user.data.name}</h2>
+      <p>User name: {user.data.username}</p>
+      <p>Phone: {user.data.phone}</p>
+      <p>Email: {user.data.email}</p>
+      <p>Website: {user.data.website}</p>
 
-  return (
-    <main style={{ padding: "1rem" }}>
-      <h2>User Name: {user.data.username}</h2>
-      <p>
-        {user.data.email}: {user.data.website}
-      </p>
-      {/* <p>Due Date: {invoice.due}</p> */}
       <nav
           style={{
             borderBottom: "solid 1px",
             paddingBottom: "1rem"
           }}
         >
-          {/* <Link to="/">User</Link> */}
-          {/* <Link to="/expenses">Expenses</Link> */}
+          <Link to="/users"
+          style={{
+            textDecoration: "none",
+            color: "black"
+          }}
+          >
+          <botton 
+              style={{    
+                background: "gray",
+                borderRadius: "17px",
+                padding: "4px 20px",
+                textDecoration: "none",
+            }}
+            
+            >Users</botton>
+          </Link>
         </nav>
     </main>
   );

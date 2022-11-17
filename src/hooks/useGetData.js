@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useGetData = (url) => {
+const useGetData = (url, userId) => {
     const [data, setData] = useState([])
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
@@ -12,7 +12,7 @@ const useGetData = (url) => {
             .then(setData)
             .catch(setError)
             .finally(() => setLoading(false))
-    }, [])
+    }, [userId])
     return {
         data,
         error,
@@ -21,7 +21,3 @@ const useGetData = (url) => {
 }
 
 export default useGetData
-
-export function getUserCopy(userId, tmp){
-    return tmp.data.find(user => user.id == userId)
-  }
