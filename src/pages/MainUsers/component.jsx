@@ -4,6 +4,7 @@ import HomeUsers from '../../routes/HomeUsers'
 import Users from '../../routes/Users'
 import User from '../../routes/Users/User'
 import Error from '../../routes/Error'
+import Posts from '../../routes/Posts'
 
 const MainUsers = () => {
 
@@ -17,6 +18,8 @@ const MainUsers = () => {
         <Route path="users/:userId" element={<User/>} />
 
         <Route path="*" element={<Error />} />
+
+        <Route path="posts" element={<Posts />} />
 
       </Routes>
   )

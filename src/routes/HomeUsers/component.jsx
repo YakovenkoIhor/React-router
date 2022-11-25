@@ -35,6 +35,25 @@ const HomeInvoices = () => {
             </botton>
             
           </Link>
+
+          <Link 
+          style={{
+            textDecoration: "none",
+            color: "black"
+           }}
+          to="/posts">
+            
+            <botton 
+                style={{    
+                  background: "gray",
+                  borderRadius: "17px",
+                  padding: "4px 20px",
+                  textDecoration: "none",
+              }}
+              >Posts
+            </botton>
+            
+          </Link>
         </nav>
       </div>
     );
