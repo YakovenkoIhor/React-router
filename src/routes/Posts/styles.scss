@@ -12,16 +12,19 @@ form {
         border: none;
         text-align: center;
     }
+
     button {
         background: gray;
         margin-bottom: 30px;
     }
 }
+
 div {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
+
 span {
     margin-bottom: 30px;
     font-weight: bold;

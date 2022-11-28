@@ -25,7 +25,6 @@ const Posts = () => {
           .required('Required'),
         userId: Yup.string()
           .required('Required'),
-        // email: Yup.string().email('Invalid email address').required('Required'),
       }),
 
       onSubmit: values => {
@@ -35,7 +34,7 @@ const Posts = () => {
           body: JSON.stringify({
             title: values.title,
             body: values.body,
-            userId: 1,
+            userId: values.userId
           }),
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -45,58 +44,68 @@ const Posts = () => {
           .then(post => {setPosts([...posts, post])}
           );
 
+        formik.resetForm({
+          values: {title: '', body: '', userId: ''},
+        });
+
       },
     });
-
+    
     return (
       <>
       <form onSubmit={formik.handleSubmit} >
-<div>
-        <label htmlFor="title" >Title</label>
-        <input 
-          id="title"
-          name="title"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.title}
-        />
-</div>
-<div>
-        <label htmlFor="body">Body</label>
-        <textarea
-          id="body"
-          name="body"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.textarea}
-        />
-</div>
-<div>
-        <label htmlFor="userId">UserId</label>
-        <select 
-          id="userId"
-          name="userId"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.body}
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
+
+        <div>
+          <label htmlFor="title" >Title</label>
+          <input 
+            id="title"
+            name="title"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.title}
+          />
         </div>
+
+        <div>
+          <label htmlFor="body">Body</label>
+          <textarea
+            id="body"
+            name="body"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.body}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="userId">UserId</label>
+          <select 
+            id="userId"
+            name="userId"
+            type="text"
+            onChange={formik.handleChange}
+            value={formik.values.userId}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+
         <button type="submit">Submit</button>
+
       </form>
+
       {posts.length === 0 ? <p>No add posts</p> : posts.map(post => {
         return (
-          <span>
+          <span key={post.id}>
             Title: {post.title} <br />
             Body: {post.body} 
-            </span>
+          </span>
         )
       })}
       </>
     );
-    
     }
+
   export default Posts
